@@ -1,0 +1,494 @@
+{
+    "product": {
+        "badges": {
+            "is_water": {
+                "value": false,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "requires_age_check": {
+                "value": false,
+                "previous": [],
+                "timestamp": 1672417858
+            }
+        },
+        "brand": {
+            "value": "Hacendado",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "categories": [
+            {
+                "id": {
+                    "value": 6,
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "name": {
+                    "value": "Huevos, leche y mantequilla",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "level": {
+                    "value": 0,
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "order": {
+                    "value": 371,
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "categories": [
+                    {
+                        "id": {
+                            "value": 72,
+                            "previous": [],
+                            "timestamp": 1672737058
+                        },
+                        "name": {
+                            "value": "Leche y bebidas vegetales",
+                            "previous": [],
+                            "timestamp": 1672737058
+                        },
+                        "level": {
+                            "value": 1,
+                            "previous": [],
+                            "timestamp": 1672737058
+                        },
+                        "order": {
+                            "value": 371,
+                            "previous": [],
+                            "timestamp": 1672737058
+                        },
+                        "categories": [
+                            {
+                                "id": {
+                                    "value": 342,
+                                    "previous": [],
+                                    "timestamp": 1672737058
+                                },
+                                "name": {
+                                    "value": "Leche entera",
+                                    "previous": [],
+                                    "timestamp": 1672737058
+                                },
+                                "level": {
+                                    "value": 2,
+                                    "previous": [],
+                                    "timestamp": 1672737058
+                                },
+                                "order": {
+                                    "value": 371,
+                                    "previous": [],
+                                    "timestamp": 1672737058
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "details": {
+            "brand": {
+                "value": "Hacendado",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "origin": {
+                "value": "Espa\u00f1a",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "suppliers": [
+                {
+                    "name": {
+                        "value": "COVAP S. COOP. AND. GANADERA DEL VALLE DE LOS PEDROCHES",
+                        "previous": [],
+                        "timestamp": 1672417858
+                    }
+                },
+                {
+                    "name": {
+                        "value": "Iparlat, S.A.",
+                        "previous": [],
+                        "timestamp": 1672417858
+                    }
+                },
+                {
+                    "name": {
+                        "value": "LACTIBER LEON S.L",
+                        "previous": [],
+                        "timestamp": 1672417858
+                    }
+                }
+            ],
+            "legal_name": {
+                "value": "Leche entera de vaca UHT",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "description": {
+                "value": "Leche entera Hacendado",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "counter_info": {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "danger_mentions": {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "alcohol_by_volume": {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "mandatory_mentions": {
+                "value": "100% granjas nacionales",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "production_variant": {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "usage_instructions": {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "storage_instructions": {
+                "value": "Mantener en lugar fresco y seco. Una vez abierto el envase, conservar en el frigor\u00edfico y consumir antes de 3 d\u00edas.",
+                "previous": [],
+                "timestamp": 1672417858
+            }
+        },
+        "display_name": {
+            "value": "Leche entera Hacendado",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "ean": {
+            "value": "8480000106971",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "extra_info": [
+            {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            }
+        ],
+        "id": {
+            "value": "10379",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "is_variable_weight": {
+            "value": false,
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "limit": {
+            "value": 999,
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "nutrition_information": {
+            "allergens": {
+                "value": "Contiene <strong>leche y sus derivados (incluida la lactosa)<\/strong>. Contiene <strong>leche y sus derivados (incluida la lactosa)<\/strong>.",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "ingredients": {
+                "value": "<strong>Leche<\/strong> entera de vaca",
+                "previous": [],
+                "timestamp": 1672417858
+            }
+        },
+        "origin": {
+            "value": "Espa\u00f1a",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "packaging": {
+            "value": "Pack-6",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "photos": [
+            {
+                "zoom": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/25df331e74cb797266703bf5a3d44c71.jpg?fit=crop&h=1600&w=1600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "regular": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/25df331e74cb797266703bf5a3d44c71.jpg?fit=crop&h=600&w=600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "thumbnail": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/25df331e74cb797266703bf5a3d44c71.jpg?fit=crop&h=300&w=300",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "perspective": {
+                    "value": 1,
+                    "previous": [],
+                    "timestamp": 1672417858
+                }
+            },
+            {
+                "zoom": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/c654f7912dfc99a73e7cb335f924d4d2.jpg?fit=crop&h=1600&w=1600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "regular": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/c654f7912dfc99a73e7cb335f924d4d2.jpg?fit=crop&h=600&w=600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "thumbnail": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/c654f7912dfc99a73e7cb335f924d4d2.jpg?fit=crop&h=300&w=300",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "perspective": {
+                    "value": 9,
+                    "previous": [],
+                    "timestamp": 1672417858
+                }
+            },
+            {
+                "zoom": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/5c507b421601895d8398cea86134fa7a.jpg?fit=crop&h=1600&w=1600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "regular": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/5c507b421601895d8398cea86134fa7a.jpg?fit=crop&h=600&w=600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "thumbnail": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/5c507b421601895d8398cea86134fa7a.jpg?fit=crop&h=300&w=300",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "perspective": {
+                    "value": 9,
+                    "previous": [],
+                    "timestamp": 1672417858
+                }
+            },
+            {
+                "zoom": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/ad32e96b4c05483f33fb94d822dc6bb5.jpg?fit=crop&h=1600&w=1600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "regular": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/ad32e96b4c05483f33fb94d822dc6bb5.jpg?fit=crop&h=600&w=600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "thumbnail": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/ad32e96b4c05483f33fb94d822dc6bb5.jpg?fit=crop&h=300&w=300",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "perspective": {
+                    "value": 9,
+                    "previous": [],
+                    "timestamp": 1672417858
+                }
+            },
+            {
+                "zoom": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/abf78bb948b0db6c719c29845049dada.jpg?fit=crop&h=1600&w=1600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "regular": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/abf78bb948b0db6c719c29845049dada.jpg?fit=crop&h=600&w=600",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "thumbnail": {
+                    "value": "https:\/\/prod-mercadona.imgix.net\/images\/abf78bb948b0db6c719c29845049dada.jpg?fit=crop&h=300&w=300",
+                    "previous": [],
+                    "timestamp": 1672417858
+                },
+                "perspective": {
+                    "value": 1,
+                    "previous": [],
+                    "timestamp": 1672417858
+                }
+            }
+        ],
+        "price_instructions": {
+            "iva": {
+                "value": 0,
+                "previous": [
+                    {
+                        "value": 4,
+                        "timestamp": 1672417858
+                    }
+                ],
+                "timestamp": 1672534714
+            },
+            "is_new": {
+                "value": false,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "is_pack": {
+                "value": true,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "pack_size": {
+                "value": 1,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "unit_name": {
+                "value": "bricks",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "unit_size": {
+                "value": 6,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "bulk_price": {
+                "value": "0.91",
+                "previous": [
+                    {
+                        "value": "0.95",
+                        "timestamp": 1672417858
+                    }
+                ],
+                "timestamp": 1672534714
+            },
+            "unit_price": {
+                "value": "5.46",
+                "previous": [
+                    {
+                        "value": "5.70",
+                        "timestamp": 1672417858
+                    },
+                    {
+                        "value": "5.48",
+                        "timestamp": 1672534714
+                    }
+                ],
+                "timestamp": 1672737058
+            },
+            "approx_size": {
+                "value": false,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "size_format": {
+                "value": "l",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "total_units": {
+                "value": 6,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "unit_selector": {
+                "value": true,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "bunch_selector": {
+                "value": false,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "drained_weight": {
+                "value": null,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "selling_method": {
+                "value": 0,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "price_decreased": {
+                "value": false,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "reference_price": {
+                "value": "0.910",
+                "previous": [
+                    {
+                        "value": "0.950",
+                        "timestamp": 1672417858
+                    },
+                    {
+                        "value": "0.914",
+                        "timestamp": 1672534714
+                    }
+                ],
+                "timestamp": 1672737058
+            },
+            "min_bunch_amount": {
+                "value": 1,
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "reference_format": {
+                "value": "L",
+                "previous": [],
+                "timestamp": 1672417858
+            },
+            "increment_bunch_amount": {
+                "value": 1,
+                "previous": [],
+                "timestamp": 1672417858
+            }
+        },
+        "published": {
+            "value": true,
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "share_url": {
+            "value": "https:\/\/tienda.mercadona.es\/product\/10379\/leche-entera-hacendado-pack-6",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "slug": {
+            "value": "leche-entera-hacendado-pack-6",
+            "previous": [],
+            "timestamp": 1672417858
+        },
+        "thumbnail": {
+            "value": "https:\/\/prod-mercadona.imgix.net\/images\/25df331e74cb797266703bf5a3d44c71.jpg?fit=crop&h=300&w=300",
+            "previous": [],
+            "timestamp": 1672417858
+        }
+    },
+    "stats": {
+        "created_at": 1672417858,
+        "updated_at": 1674590635,
+        "updates": 77
+    }
+}

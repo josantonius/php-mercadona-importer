@@ -1,0 +1,11 @@
+/.github export-ignore
+/tests export-ignore
+/products export-ignore
+/logs export-ignore
+CHANGELOG.md export-ignore
+phpcs.xml export-ignore
+phpunit.xml export-ignore
+phpmd.xml export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.php-cs-fixer.dist.php export-ignore
