@@ -16,7 +16,7 @@ Aplicación PHP de interfaz de línea de comandos (CLI) para importar productos 
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Configuración](#configuración)
-- [tests](#tests)
+- [Pruebas](#pruebas)
 - [Tareas pendientes](#tareas-pendientes)
 - [Registro de Cambios](#registro-de-cambios)
 - [Contribuir](#contribuir)
@@ -81,20 +81,20 @@ int   timestamp
 De esta manera los datos no se sobrescriben al actualizar los productos, permitiendo mantener un
 historial de cambios para cualquier detalle:
 
-```json
+```jsonc
 "unit_price": {
     "value": "7.90", // Valor actual
     "previous": [
         {
-            "value": "7.40",  // Valor del día 20/01/2023
+            "value": "7.40",  // Valor del día 20-01-2023
             "timestamp": 1674252044
         },
         {
-            "value": "7.10",  // Valor del día 21/01/2023
+            "value": "7.10",  // Valor del día 21-01-2023
             "timestamp": 1674338444
         }
     ],
-    "timestamp": 1674511244 // 23/01/2023
+    "timestamp": 1674511244 // 23-01-2023
 },
 ```
 
@@ -169,7 +169,7 @@ timezone: 'Europe/Madrid'
 Se utiliza para la hora de los archivos de logs:
 
 ```txt
-[2023-01-24T18:32:45.876599+01:00] LOG.INFO: Retomando la importación desde la categoría 163. [163] []
+[2023-01-24T18:32:45.876599+01:00] LOG.INFO: Retomando la importación desde la categoría 163.
 ```
 
 ### `delayForError`
@@ -196,7 +196,7 @@ Intervalo en microsegundos en el que se realizarán las peticiones a la API de M
 includeFullProduct: false
 ```
 
-Con una petición a una categoría se obtienen todos los productos de la misma, pero el producto tiene
+Al importar una categoría se obtienen todos los productos de ella, sin embargo los productos tienen
 [detalles resumidos](.github/docs/products/category-product.json). Si se activa esta opción,
 se importarán los [detalles completos](.github/docs/products/full-product.json) **cuando el producto
 se importe por primera vez**.
@@ -215,7 +215,7 @@ reimportFullProduct: false
 ```
 
 La opción `includeFullProduct` activada solo importa los detalles completos para nuevos productos, si
-quieres actualizar el producto con todos los detalles aunque exista, puedes activar esta opción.
+quieres actualizar un producto existente con todos los detalles, puedes activar esta opción.
 
 **IMPORTANTE** - Las mismas consideraciones que con la opción `includeFullProduct`.
 
@@ -235,7 +235,7 @@ productsDirectory: __DIR__ . '/products/'
 
 Directorio donde se guardarán los productos.
 
-## Tests
+## Pruebas
 
 Run code standard tests with [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer):
 
@@ -268,7 +268,7 @@ Los cambios detallados de cada versión se documentan en las
 
 ## Contribuir
 
-Por favor, asegúrate de leer la [Contributing Guide](.github/CONTRIBUTING.md), antes de hacer un
+Por favor, asegúrate de leer la [guía de contribución](.github/CONTRIBUTING.md), antes de hacer un
 pull request, comenzar una discusión o reportar un issue.
 
 ¡Gracias por [colaborar](https://github.com/josantonius/php-mercadona-api/graphs/contributors)! :heart:
