@@ -1,0 +1,103 @@
+{
+    "id": "19701",
+    "ean": "8480000197016",
+    "slug": "sal-rosa-himalaya-hacendado-bote",
+    "brand": "Hacendado",
+    "limit": 999,
+    "badges": {
+        "is_water": false,
+        "requires_age_check": false
+    },
+    "origin": "Pakistán",
+    "photos": [
+        {
+            "zoom": "https://prod-mercadona.imgix.net/images/991e60bbdb74fba917c9e25a05d2ab78.jpg?fit=crop&h=1600&w=1600",
+            "regular": "https://prod-mercadona.imgix.net/images/991e60bbdb74fba917c9e25a05d2ab78.jpg?fit=crop&h=600&w=600",
+            "thumbnail": "https://prod-mercadona.imgix.net/images/991e60bbdb74fba917c9e25a05d2ab78.jpg?fit=crop&h=300&w=300",
+            "perspective": 3
+        },
+        {
+            "zoom": "https://prod-mercadona.imgix.net/images/892f3bd6e9c936fd4231337c55dcb89c.jpg?fit=crop&h=1600&w=1600",
+            "regular": "https://prod-mercadona.imgix.net/images/892f3bd6e9c936fd4231337c55dcb89c.jpg?fit=crop&h=600&w=600",
+            "thumbnail": "https://prod-mercadona.imgix.net/images/892f3bd6e9c936fd4231337c55dcb89c.jpg?fit=crop&h=300&w=300",
+            "perspective": 4
+        }
+    ],
+    "details": {
+        "brand": "Hacendado",
+        "origin": "Pakistán",
+        "suppliers": [
+            {
+                "name": "Envasado por Wassy Himalaya, S.L"
+            }
+        ],
+        "legal_name": "Sal rosa Himalaya",
+        "description": "Sal rosa del Himalaya Hacendado",
+        "counter_info": null,
+        "danger_mentions": null,
+        "alcohol_by_volume": null,
+        "mandatory_mentions": "No recomendado para menores de 3 años. Personas hipertensas",
+        "production_variant": null,
+        "usage_instructions": "Cocina y mesa.",
+        "storage_instructions": "Conservar en lugar fresco y seco. Proteger de la luz solar directa"
+    },
+    "packaging": "Bote",
+    "published": true,
+    "share_url": "https://tienda.mercadona.es/product/19701/sal-rosa-himalaya-hacendado-bote",
+    "thumbnail": "https://prod-mercadona.imgix.net/images/991e60bbdb74fba917c9e25a05d2ab78.jpg?fit=crop&h=300&w=300",
+    "categories": [
+        {
+            "id": 12,
+            "name": "Aceite, especias y salsas",
+            "level": 0,
+            "order": 7,
+            "categories": [
+                {
+                    "id": 112,
+                    "name": "Aceite, vinagre y sal",
+                    "level": 1,
+                    "order": 7,
+                    "categories": [
+                        {
+                            "id": 424,
+                            "name": "Sal y bicarbonato",
+                            "level": 2,
+                            "order": 7
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "extra_info": [
+        null
+    ],
+    "display_name": "Sal rosa del Himalaya Hacendado",
+    "is_variable_weight": false,
+    "price_instructions": {
+        "iva": 10,
+        "is_new": false,
+        "is_pack": false,
+        "pack_size": null,
+        "unit_name": null,
+        "unit_size": 0.25,
+        "bulk_price": "7.20",
+        "unit_price": "1.80",
+        "approx_size": false,
+        "size_format": "kg",
+        "total_units": null,
+        "unit_selector": true,
+        "bunch_selector": false,
+        "drained_weight": null,
+        "selling_method": 0,
+        "price_decreased": false,
+        "reference_price": "7.200",
+        "min_bunch_amount": 1.0,
+        "reference_format": "kg",
+        "increment_bunch_amount": 1.0
+    },
+    "nutrition_information": {
+        "allergens": null,
+        "ingredients": "Natural, sin aditivos y sin refinar."
+    }
+}
