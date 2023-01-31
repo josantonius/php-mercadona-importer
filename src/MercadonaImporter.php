@@ -22,7 +22,7 @@ use Josantonius\CliPrinter\CliPrinter;
 
 class MercadonaImporter
 {
-    private Json $eanFile;
+    private Json $productMapping;
     private Json $cacheFile;
 
     private object $file;
@@ -39,13 +39,15 @@ class MercadonaImporter
     private int $productsUpdated  = 0;
     private int $productsReviewed = 0;
 
+    private string $defaultWarehouse = 'svq1';
+
     private const HTTP_TOO_MANY_REQUESTS = 429;
 
     public function __construct(
         private string $timezone,
         private string $warehouse,
-        private string $productsDirectory,
-        private string $logsDirectory,
+        private string $outputDirectory,
+        private string $logDirectory,
         private int $delayForError,
         private int $delayForRequests,
         private bool $includeFullProduct,
@@ -55,30 +57,36 @@ class MercadonaImporter
 
         $this->setPrinter();
 
+        $this->warehouse = strtolower($this->warehouse ?: $this->defaultWarehouse);
+
+        if (!is_dir($outputDirectory) || !is_dir($logDirectory)) {
+            $this->printer->error('directory.error');
+            $this->printer->error('import.cancel', $this->warehouse);
+            $this->printEndMessages();
+            return;
+        }
+
         $this->file     = (object) [];
         $this->product  = (object) [];
         $this->category = (object) [];
 
-        $this->eanFile   = $this->file('ean_id_mapping');
-        $this->cacheFile = $this->file('cache');
+        $this->cacheFile      = $this->file('cache');
+        $this->productMapping = $this->file('ean_id_mapping');
 
-        !$this->eanFile->exists()   && $this->eanFile->set([]);
+        !$this->productMapping->exists()   && $this->productMapping->set([]);
         !$this->cacheFile->exists() && $this->cacheFile->set([]);
 
         $this->startTime    = microtime(true);
-        $this->mercadonaApi = new MercadonaApi($this->printer, $delayForRequests, $warehouse);
+        $this->mercadonaApi = new MercadonaApi($this->printer, $delayForRequests, $this->warehouse);
 
         $this->run();
-        $this->showStats();
-
-        $this->printer->newLine();
     }
 
     private function run(): void
     {
         $cache = $this->getCache();
 
-        $this->printStartMessage($cache);
+        $this->printStartMessages($cache);
 
         if (!$cache) {
             $this->addAvailableCategoriesToCache();
@@ -86,6 +94,7 @@ class MercadonaImporter
         }
 
         $this->processCategoryProducts($cache);
+        $this->printEndMessages();
     }
 
     private function processCategoryProducts(array $categories): void
@@ -96,9 +105,7 @@ class MercadonaImporter
             $products = $products ?: $this->getCategoryProductsFromApi();
 
             if (!$products) {
-                $this->printer->error('import.product.error', $categoryId);
-                $this->removeCategoryFromCache($categoryId);
-                continue;
+                return;
             }
 
             $this->addProductsToCachedCategory($products);
@@ -115,16 +122,43 @@ class MercadonaImporter
             $this->product->data  = $remoteProduct;
             $this->file->instance = $this->file('product');
 
-            $this->productsReviewed++;
-
             $isNew = !$this->file->instance->exists();
 
             $this->file->contents = !$isNew ? $this->file->instance->get() : $this->getProductSkeleton();
 
             $isNew ? $this->createProduct() : $this->updateProduct();
 
+            $this->mapProduct();
             $this->removeProductFromCache();
+
+            $this->productsReviewed++;
         }
+    }
+
+    private function mapProduct(): void
+    {
+        $key      = $this->getProductKeyByIdValue($this->product->id);
+        $products = $this->productMapping->get();
+
+        $data = [
+            'id' => $this->product->id,
+            'ean' => $this->product->data['ean'] ?? $this->file->contents['product']['ean']['value'] ?? null,
+            'name' => $this->product->data['display_name'] ?? null,
+            'warehouses' => [$this->warehouse],
+        ];
+
+        if ($key !== null) {
+            $data['warehouses'] = $products[$key]['warehouses'];
+            if (!in_array($this->warehouse, $data['warehouses'])) {
+                $data['warehouses'][] = $this->warehouse;
+            }
+            $products[$key] = $data;
+            $this->productMapping->set($products);
+            return;
+        }
+
+        $products[] = $data;
+        $this->productMapping->set($products);
     }
 
     private function createProduct(): void
@@ -143,7 +177,9 @@ class MercadonaImporter
 
     private function updateProduct(): void
     {
-        if ($this->reimportFullProduct) {
+        $hasEan = isset($this->file->contents['product']['ean']['value']);
+
+        if ($this->reimportFullProduct || (!$hasEan && $this->includeFullProduct)) {
             $this->importAllProductDetails();
         }
 
@@ -155,6 +191,17 @@ class MercadonaImporter
         $this->printer->update('product.updated', [$this->product->id, $this->file->instance->filepath]);
     }
 
+    private function importAllProductDetails(): bool
+    {
+        $this->product->data = $this->getProductDetailsFromApi();
+        if (!$this->product->data) {
+            $this->printer->error('import.product.error', $this->product->id);
+            return false;
+        }
+
+        return true;
+    }
+
     private function saveContentToFile(): void
     {
         $this->file->contents['stats']['updated_at'] = time();
@@ -163,18 +210,6 @@ class MercadonaImporter
         ksort($this->file->contents['product']);
 
         $this->file->instance->set($this->file->contents);
-    }
-
-    private function importAllProductDetails(): bool
-    {
-        $this->product->data = $this->getProductDetailsFromApi();
-        if (!$this->product->data) {
-            $this->printer->error('import.product.error', $this->product->id);
-            return false;
-        }
-        $this->eanFile->merge(['EAN' . $this->product->data['ean'] => $this->product->id]);
-
-        return true;
     }
 
     private function transformProductToLocalStructure(): void
@@ -259,7 +294,7 @@ class MercadonaImporter
     {
         $logger = new Logger('LOG');
 
-        $logger->pushHandler(new StreamHandler($this->logsDirectory . date('Y-m-d') . '.log'));
+        $logger->pushHandler(new StreamHandler($this->logDirectory . date('Y-m-d') . '.log'));
 
         return $logger;
     }
@@ -280,7 +315,7 @@ class MercadonaImporter
             ->setTagColor('api', Color::CYAN);
     }
 
-    private function printStartMessage(array $cache): void
+    private function printStartMessages(array $cache): void
     {
         $categoryId = array_key_first($cache);
         $productId  = array_values($cache[$categoryId] ?? [])[0]['id'] ?? null;
@@ -296,6 +331,12 @@ class MercadonaImporter
         }
     }
 
+    private function printEndMessages(): void
+    {
+        $this->showStats();
+        $this->printer->newLine();
+    }
+
     private function showStats(): void
     {
         $this->printer->info('requests.submitted', [$this->mercadonaApi->getDoneRequests()]);
@@ -307,18 +348,19 @@ class MercadonaImporter
 
     private function file(string $name): Json
     {
-        $baseDirectory = '/' . trim($this->productsDirectory, '/') . '/';
+        $baseDirectory = '/' . trim($this->outputDirectory, '/');
 
         switch ($name) {
             case 'cache':
                 return new Json(__DIR__ . '/data/cache.json');
             case 'ean_id_mapping':
-                return new Json(__DIR__ . '/data/ean_id_mapping.json');
+                return new Json($baseDirectory . '/product_mapping.json');
             case 'messages':
                 return new Json(__DIR__ . '/data/messages.json');
             case 'product':
-                $folder = $this->warehouse ? $this->warehouse . '/' : '';
-                return new Json($baseDirectory . $folder . $this->product->id . '.json');
+                return new Json(
+                    $baseDirectory . '/' . $this->warehouse . '/' . $this->product->id . '.json'
+                );
         }
     }
 
@@ -333,8 +375,10 @@ class MercadonaImporter
         $this->printer->error('import.paused', [round($this->delayForError / 1000000)]);
 
         $this->showStats();
+
         usleep($this->delayForError);
-        $this->run();
+
+        $this->processCategoryProducts($this->getCache());
     }
 
     private function getAvailableCategoriesFromApi(): ?array
@@ -367,6 +411,19 @@ class MercadonaImporter
         return null;
     }
 
+    private function getProductKeyByIdValue(string $productId): ?int
+    {
+        $products = $this->productMapping->get();
+
+        foreach ($products as $key => $element) {
+            if ($productId === $element['id']) {
+                return $key;
+            }
+        }
+
+        return null;
+    }
+
     private function getCache(): array
     {
         return $this->cacheFile->get()[$this->warehouse] ?? [];
@@ -374,7 +431,7 @@ class MercadonaImporter
 
     private function addAvailableCategoriesToCache(): void
     {
-        $this->cacheFile->set([$this->warehouse => $this->getAvailableCategoriesFromApi()]);
+        $this->cacheFile->set($this->getAvailableCategoriesFromApi() ?? [], $this->warehouse);
     }
 
     private function addProductsToCachedCategory(array $products): void

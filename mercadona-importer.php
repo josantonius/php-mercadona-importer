@@ -16,7 +16,7 @@ new MercadonaImporter(
     delayForError: 300000000,
     delayForRequests: 1300000,
     includeFullProduct: false,
-    reimportFullProduct: true,
-    logsDirectory: __DIR__ . '/logs/',
-    productsDirectory: __DIR__ . '/products/',
+    reimportFullProduct: false,
+    logDirectory: __DIR__ . '/logs/',
+    outputDirectory: __DIR__ . '/data/',
 );

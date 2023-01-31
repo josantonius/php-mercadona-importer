@@ -61,15 +61,6 @@ php mercadona-importer.php
 
 ![Importación](.github/docs/images/import.png)
 
-Los productos se guardan en formato JSON utilizando el ID del producto como nombre y se organizan
-por carpetas según el almacén que se utilice al importarlos:
-
-`/products/svq1/4883.json`
-
-`/products/mad1/4883.json`
-
-`/products/bcn1/4883.json`
-
 Para cada detalle del producto se utiliza la siguiente estructura:
 
 ```txt
@@ -95,7 +86,7 @@ historial de cambios para cualquier detalle:
         }
     ],
     "timestamp": 1674511244 // 23-01-2023
-},
+}
 ```
 
 [EJEMPLO DE PRODUCTO IMPORTADO](.github/docs/products/10379.json)
@@ -113,8 +104,8 @@ new MercadonaImporter(
     delayForRequests: 1300000,
     includeFullProduct: false,
     reimportFullProduct: false,
-    logsDirectory: __DIR__ . '/logs/',
-    productsDirectory: __DIR__ . '/products/',
+    logDirectory: __DIR__ . '/logs/',
+    outputDirectory: __DIR__ . '/products/',
 );
 ```
 
@@ -132,10 +123,7 @@ Esto implica que, según el almacén desde el que se importe:
 - El número de productos importados variará ya que dependerá de los que tengan habilitados.
 - Un mismo producto puede tener diferentes detalles (peso, precio...) según la ubicación.
 
-Es posible importar productos sin especificar un almacén (dejando este campo vacío), pero
-seguramente los productos importados sean del almacén VLC1, que es el que utilizan por defecto.
-
-Algunos identificadores de centros logísticos que he comprobado que utilizan son:
+Algunos identificadores de centros logísticos que se utilizan son:
 
 - `2343` - Murcia
 - `2749` - Lleida
@@ -198,8 +186,8 @@ includeFullProduct: false
 
 Al importar una categoría se obtienen todos los productos de ella, sin embargo los productos tienen
 [detalles resumidos](.github/docs/products/category-product.json). Si se activa esta opción,
-se importarán los [detalles completos](.github/docs/products/full-product.json) **cuando el producto
-se importe por primera vez**.
+se importarán los [detalles completos](.github/docs/products/full-product.json) del producto en **una
+sola ocasión** (al agregarlo por primera vez o si no se hizo en importaciones anteriores).
 
 **IMPORTANTE** - Activar esta opción aumenta considerablemente el número de peticiones que se realizan
 y el tiempo de ejecución, ya que si todos los productos son nuevos se realizará una petición por cada
@@ -214,26 +202,46 @@ uno de ellos:
 reimportFullProduct: false
 ```
 
-La opción `includeFullProduct` activada solo importa los detalles completos para nuevos productos, si
-quieres actualizar un producto existente con todos los detalles, puedes activar esta opción.
+Fuerza la importación de los detalles completos del producto aunque se hubiese hecho anteriormente.
 
 **IMPORTANTE** - Las mismas consideraciones que con la opción `includeFullProduct`.
 
-### `logsDirectory`
+### `logDirectory`
 
 ```php
-logsDirectory: __DIR__ . '/logs/'
+logDirectory: __DIR__ . '/logs/'
 ```
 
 Directorio donde se guardarán los logs.
 
-### `productsDirectory`
+### `outputDirectory`
 
 ```php
-productsDirectory: __DIR__ . '/products/'
+outputDirectory: __DIR__ . '/data/'
 ```
 
-Directorio donde se guardarán los productos.
+Directorio donde se guardarán los archivos importados.
+
+Los productos se almacenan en formato JSON utilizando el ID del producto como nombre y se organizan
+por carpetas según el almacén que se utilice al importarlos:
+
+`/data/svq1/39922.json`
+
+`/data/mad1/39922.json`
+
+`/data/bcn1/39922.json`
+
+También se genera el archivo `/data/product_mapping.json` que contiene el catálogo completo de
+productos con información básica:
+
+```json
+{
+    "id": "39922",
+    "ean": "8480000399229",
+    "name": "Zumo de manzana",
+    "warehouses": ["svq1", "mad1", "bcn1"]
+}
+```
 
 ## Pruebas
 

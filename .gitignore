@@ -1,5 +1,5 @@
 vendor/
-/products
+/data
 logs/
 coverage/
 .vscode/
@@ -14,3 +14,4 @@ php-mercadona-importer.code-workspace
 coverage.xml
 src/data/cache.json
 src/data/ean_id_mapping.json
+importer.php
