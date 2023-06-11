@@ -1,6 +1,16 @@
 # CHANGELOG
 
-## [v1.0.1](https://github.com/josantonius/php-mercadona-importer/releases/tag/v1.0.0) (2023-01-31)
+## [v1.0.2](https://github.com/josantonius/php-mercadona-importer/releases/tag/v1.0.2) (2023-06-11)
+
+### Added
+
+- The `slug` field was added to the basic product information in the `product_mapping.json` file.
+
+### Updated
+
+- Documentation was updated.
+
+## [v1.0.1](https://github.com/josantonius/php-mercadona-importer/releases/tag/v1.0.1) (2023-01-31)
 
 ### Changed
 
@@ -23,8 +33,8 @@
 
 ### Updated
 
-Documentation was updated.
+- Documentation was updated.
 
 ## [v1.0.0](https://github.com/josantonius/php-mercadona-importer/releases/tag/v1.0.0) (2023-01-25)
 
-Initial release.
+- Initial release.
