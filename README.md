@@ -194,7 +194,7 @@ y el tiempo de ejecución, ya que si todos los productos son nuevos se realizar�
 uno de ellos:
 
 - Importar con detalles resumidos: unas 150 peticiones y la importación dura unos 3-4 minutos.
-- Importar con detalles completos: más de 5000 peticiones y la importación dura más de 5 horas.
+- Importar con detalles completos: más de 5000 peticiones y la importación dura más de 4 horas.
 
 ### `reimportFullProduct`
 
@@ -238,6 +238,7 @@ productos con información básica:
 {
     "id": "39922",
     "ean": "8480000399229",
+    "slug": "zumo-de-manzana",
     "name": "Zumo de manzana",
     "warehouses": ["svq1", "mad1", "bcn1"]
 }
