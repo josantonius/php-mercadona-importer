@@ -142,7 +142,12 @@ class MercadonaImporter
 
         $data = [
             'id' => $this->product->id,
-            'ean' => $this->product->data['ean'] ?? $this->file->contents['product']['ean']['value'] ?? null,
+            'ean' => $this->product->data['ean']
+                ?? $this->file->contents['product']['ean']['value']
+                ?? null,
+            'slug' => $this->product->data['slug']
+                ?? $this->file->contents['product']['slug']['value']
+                ?? null,
             'name' => $this->product->data['display_name'] ?? null,
             'warehouses' => [$this->warehouse],
         ];
