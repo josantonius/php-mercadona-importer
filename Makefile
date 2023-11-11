@@ -20,7 +20,7 @@ composer-install:
 	docker compose run --rm -u ${UID}:${GID} ${PHP_SERVICE} composer install
 
 bash:
-	docker compose run --rm -u ${UID}:${GID} ${PHP_SERVICE} bash
+	docker compose run --rm -u ${UID}:${GID} ${PHP_SERVICE} sh
 
 sync:
 	docker compose exec --user=${UID} ${PHP_SERVICE} sh -c "php mercadona-importer.php"
