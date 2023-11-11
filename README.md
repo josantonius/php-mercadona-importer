@@ -28,8 +28,8 @@ Aplicación PHP de interfaz de línea de comandos (CLI) para importar productos 
 ## Requerimientos
 
 - Sistema operativo: Linux.
-
 - Versiones PHP: 8.1 | 8.2.
+- Docker (opcional)
 
 ## Instalación
 
@@ -51,12 +51,23 @@ Instala las dependencias:
 composer install
 ```
 
+O con Docker ejecutando:
+```console
+make init
+```
+
 ## Uso
 
 Revisa la [configuración](#configuración) y ejecuta el script para iniciar la importación:
 
 ```console
 php mercadona-importer.php
+```
+
+O si prefieres usarlo con Docker, bastará con ejecutar:
+
+```console
+make sync
 ```
 
 ![Importación](.github/docs/images/import.png)
