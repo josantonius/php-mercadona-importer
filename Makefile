@@ -17,7 +17,7 @@ down:
 	docker compose down -v
 
 composer-install:
-		docker compose run --rm -u ${UID}:${GID} ${PHP_SERVICE} composer install
+	docker compose run --rm -u ${UID}:${GID} ${PHP_SERVICE} composer install
 
 bash:
 	docker compose run --rm -u ${UID}:${GID} ${PHP_SERVICE} bash
