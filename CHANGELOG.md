@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [v1.0.3](https://github.com/josantonius/php-mercadona-importer/releases/tag/v1.0.3) (2024-05-20)
+
+### Added
+
+- Docker and Makefile support to simplify development and execution by @jgrubiox in #4.
+
 ## [v1.0.2](https://github.com/josantonius/php-mercadona-importer/releases/tag/v1.0.2) (2023-06-11)
 
 ### Added
