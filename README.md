@@ -28,7 +28,7 @@ Aplicación PHP de interfaz de línea de comandos (CLI) para importar productos 
 ## Requerimientos
 
 - Sistema operativo: Linux.
-- Versiones PHP: 8.1 | 8.2.
+- Versiones PHP: 8.1 | 8.2 | 8.3.
 - Docker (opcional)
 
 ## Instalación
