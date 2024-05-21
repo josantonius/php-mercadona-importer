@@ -163,8 +163,8 @@ Algunos identificadores de centros logísticos que se utilizan son:
 _Otros identificadores de almacenes facilitados por [Joel Taylor](https://github.com/jtayped),
 creador de [mercapy](https://github.com/jtayped/mercapy)_:
 
-- `2183`, `2581`, `2623`, `3684`, `3968`, `4028`, `4115`, `4281`, `4293`, `4308`, `4421`, `4436`,
-`4483`, `4537`, `4572`, `4644`.
+- `2183`, `2581`, `2623`, `3684`, `3968`, `4028`, `4115`, `4281`
+- `4293`, `4308`, `4421`, `4436`, `4483`, `4537`, `4572`, `4644`
 
 ### `timezone`
 
